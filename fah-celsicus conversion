@@ -1,0 +1,20 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+/* print fahrenheit - celsius table */
+int main(){
+    int celsius , fah;   /* declaring celsius and fahrenheit as integers */
+    int lower , upper , step; /* declaring upper , lower , step as integers */
+    
+    lower = 0;
+    upper = 300;
+    step = 20;
+    fah = lower;
+    
+    while(fah <= upper){  /* while condition to iterate the loop */
+        celsius = 5 * (fah - 32) / 9;
+        printf("%d\t%d\n",fah , celsius);
+        fah = fah + step; 
+    }
+    
+}
+
