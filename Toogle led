@@ -1,0 +1,44 @@
+# Toggle led code .
+
+Function : Blinking led once a second 
+
+Returns : It performs infinite loop.
+
+#define LED_GREEN 0*40
+#define P2LTCH 0*ff5E
+
+Toogleled(unsigned char ledmask)
+{
+  asm {
+        // Load the memory address of the register controlling the LEDs into the dx register
+        mov dx, P2LTCH
+
+        // Read the current state of the LEDs from the register into the al register
+        in al, dx
+
+        // Move the ledMask value into the ah register
+        mov ah, ledMask
+
+        // Toggle the LEDs by performing a bitwise XOR operation between the current LED state (al) and the ledMask (ah)
+        xor al, ah
+
+        // Write the updated LED state (al) back to the register
+        out dx, al
+    };
+}
+
+        Toogleled()
+
+delay() /* delay per cycle */
+
+delay(){
+  #define CYCLE_PER_MS 260 /* NUMBER OF DECREMENT PER CYCLE
+
+  unsigned long nCycles = nMilliseconds * CYCLES_PER_MS;
+ 
+  while (nCycles--);
+} delay() 
+
+
+
+
